@@ -1,8 +1,8 @@
 # Terraria Lifesteal Accessory Mod
-Mod para o Terraria que adiciona um novo item no jogo: Vampire Claw
+Mod para o Terraria que adiciona um novo item no jogo: Vampire Claw<br>
 Alternativa para usar antes do item Vampire Knives (quase endgame)
 
-O item possui um buff único de 4% de roubo de vida e é usado como acessório no jogo.
+O item possui único buff de roubo de vida e é usado como acessório.
 Item drop de um mob do bioma Crimson - Herpling (Hardmode).
 
 Link na workshop da Steam com notas de alteração:
