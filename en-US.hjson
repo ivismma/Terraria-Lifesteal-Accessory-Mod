@@ -1,0 +1,10 @@
+Mods: {
+	lifestealaccessory: {
+		Items: {
+			VampireClaw: {
+				DisplayName: Vampire Claw
+				Tooltip: ""
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+Vampire Claw:
+
+Adds an accessory item in the Crimson biome:
+
+- Life Steal: 4%
+- Life Steal effect does not apply in PvP
+- Drop Chance: 0.5% - Herpling (Crimson)
+
+------------------------------------------------------------
+
+Adiciona um item acessório no bioma Crimson:
+
+- Roubo de vida: 4%
+- Roubo de vida não é aplicado no PvP
+- Drop Chance: 0.5% - Herpling (Crimson)
+
+Coded by: me
+Icon by: liber
+------------------------------------------------------------
+Código por: mim.
+Ícone por: liber
