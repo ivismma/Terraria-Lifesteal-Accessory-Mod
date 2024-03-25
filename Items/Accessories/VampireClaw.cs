@@ -12,10 +12,10 @@ namespace lifestealaccessory.Items.Accessories
          // ADICIONAR LOOT DROP:
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if(npc.netID == 174) // Herpling (Crimson)
-            {                                                                                      // 0.5% CHANCE (1/200)
+            if(npc.netID == 174) // Herpling (Crimson)                                      // 0.5% CHANCE (1/200)
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
-            }
+            if(npc.netID == 94) // Corruptor (Crimson)                                      // 0.5% CHANCE (1/200)
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
         }
     }
 
@@ -34,13 +34,14 @@ namespace lifestealaccessory.Items.Accessories
             Item.height = 16;
             Item.accessory = true;
             Item.rare = 4;           // P G  S C         
-            Item.value = Item.sellPrice(0,2,30,0); // 2 Gold, 50 Silver
+            Item.value = Item.sellPrice(0,2,50,0); // 2 Gold, 50 Silver
             // Preço médio de reforja de buff no NPC Goblin: Apróx 3x o preço do sellPrice.
         }
         
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.GetModPlayer<LifeStealPlayer>().HasLifeStealAccessory = true;
+            player.GetAttackSpeed(DamageClass.Melee) += 0.04f; // +4% Atk Speed
         }
     }
 }

@@ -1,6 +1,11 @@
 Items: {
 	VampireClaw: {
 		DisplayName: Vampire Claw
-		Tooltip: 4% increased life steal (non-player targets).
+		Tooltip:
+			'''
+			Gives lifesteal effect based on damage dealt
+			4% increased life steal (non-player targets)
+			4% increased melee attack speed
+			'''
 	}
 }
