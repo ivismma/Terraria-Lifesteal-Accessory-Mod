@@ -7,5 +7,5 @@ Item drop de um mob do bioma Crimson - Herpling (Hardmode).
 
 Para baixar, abrir Terraria com tModLoader e procurar pelo nome do mod ou usar o link abaixo.<br>
 Link na workshop da Steam com notas de alteração:
-https://tinyurl.com/am6yrafv <br>
+https://tinyurl.com/mwpakyeh <br>
 Ícone/modelo criado pelo meu amigo: Nícolas Fernandes.
