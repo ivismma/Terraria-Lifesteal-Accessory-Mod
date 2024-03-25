@@ -1,6 +1,0 @@
-Items: {
-	VampireClaw: {
-		DisplayName: Vampire Claw
-		Tooltip: 4% increased life steal (non-player targets).
-	}
-}
