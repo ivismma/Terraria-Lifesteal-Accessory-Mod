@@ -6,6 +6,8 @@ Vampire Claw:
 - Life Steal effect does not apply in PvP
 - Grants bonus 4% attack speed to melee weapons.
 
+- Near Death "Passive" : When below 15% health, receives an additional small boost of lifesteal and attack speed, going up to 6% Lifesteal and 8% melee attack speed.
+
 How to get: Mob drop
 
 - Drop Chance:

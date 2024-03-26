@@ -5,7 +5,8 @@ Items: {
 			'''
 			Gives lifesteal effect based on damage dealt
 			4% increased life steal (non-player targets)
-			4% increased melee attack speed
+			4% increased attack speed (melee)
+			When below 15% health, receives 6% life steal and 8% attack speed instead.
 			'''
 	}
 }
