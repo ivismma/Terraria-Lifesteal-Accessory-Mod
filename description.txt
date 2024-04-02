@@ -8,6 +8,9 @@ Vampire Claw:
 
 - Near Death "Passive" : When below 15% health, receives an additional small boost of lifesteal and attack speed, going up to 6% Lifesteal and 8% melee attack speed.
 
+There are balancing tweaks in this accessory.
+Check [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3199806186] patch-notes/changelog [/url] for detailed balancing stuff.
+
 How to get: Mob drop
 
 - Drop Chance:

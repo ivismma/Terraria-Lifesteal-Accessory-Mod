@@ -18,7 +18,8 @@ namespace lifestealaccessory
 
         // FLAG
         public bool HasLifeStealAccessory = false;
-        
+        // public readonly int healLimit = 10;
+
         public bool canLifeSteal(int npcID)
         {       // Função para verificar se pode ou não roubar vida...
                 return (HasLifeStealAccessory && npcID != 488);
@@ -36,12 +37,23 @@ namespace lifestealaccessory
             {
                 // Calcula o roubo de vida com base no dano e %.
                 float percentage = VampireClaw.LifeStealPercentage;
-                if(nearDeath()) percentage += 0.02f; // Adiciona +2% Life Steal
+                bool passive = nearDeath();
+                if(passive) percentage += 0.02f; // Adiciona +2% Life Steal
                 
                 int lifeStealAmount = (int) (damageDone * percentage);
-
                 if(lifeStealAmount > 0) // HP do jogo é (int)
                 {
+                    if(!passive) // Vida > 15%...
+                    {                              // Limites de heal:
+                        if(!hit.Crit) // Normal
+                            lifeStealAmount = (lifeStealAmount > 5)? 5 : lifeStealAmount;
+                        else          // Crítico
+                            lifeStealAmount = (lifeStealAmount > 6)? 6 : lifeStealAmount;
+                    }
+                    else{ // Vida <= 15%  -  Passiva ativada... 
+                        lifeStealAmount = (lifeStealAmount > 8)? 8 : lifeStealAmount;
+                    }
+                    
                     // Aplica a cura baseada no dano.
                     Main.LocalPlayer.statLife += lifeStealAmount; // Adiciona HP.
                     Main.LocalPlayer.HealEffect(lifeStealAmount); // Efeito visual da quantidade curada.
