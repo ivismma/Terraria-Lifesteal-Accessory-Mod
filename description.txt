@@ -11,7 +11,7 @@ Vampire Claw:
 There are balancing tweaks in this accessory.
 Check [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3199806186] patch-notes/changelog [/url] for detailed balancing stuff.
 
-How to get: Mob drop
+Obtainable by: Mob drop (Hardmode)
 
 - Drop Chance:
 0.5% - Herpling (Crimson)
