@@ -14,7 +14,7 @@ namespace lifestealaccessory.Items.Accessories
         {
             if(npc.netID == 174) // Herpling (Crimson)                                      // 0.5% CHANCE (1/200)
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
-            if(npc.netID == 94) // Corruptor (Crimson)                                      // 0.5% CHANCE (1/200)
+            if(npc.netID == 94) // Corruptor (Corruption)                                   // 0.5% CHANCE (1/200)
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
         }
     }
