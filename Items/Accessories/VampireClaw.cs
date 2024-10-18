@@ -3,25 +3,28 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Creative;
+using System;
 
 namespace lifestealaccessory.Items.Accessories
 {
-
     internal class NPCLOOT : GlobalNPC
     {
-         // ADICIONAR LOOT DROP:
+        // ADICIONAR LOOT DROP:
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
+            int itemID = ModContent.ItemType<Items.Accessories.VampireClaw>();
             if(npc.netID == 174) // Herpling (Crimson)                                      // 0.5% CHANCE (1/200)
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
             if(npc.netID == 94) // Corruptor (Corruption)                                   // 0.5% CHANCE (1/200)
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.VampireClaw>(),200, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
         }
     }
 
     public class VampireClaw : ModItem
     {
         public static readonly float LifeStealPercentage = 0.04f; // 4% de roubo de vida
+        public static DateTime lastHeal = DateTime.Now; // tempo no último heal
+
 
         public override void SetStaticDefaults()
         {
