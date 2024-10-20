@@ -3,10 +3,11 @@ Items: {
 		DisplayName: Vampire Claw
 		Tooltip:
 			'''
-			Gives lifesteal effect based on damage dealt
-			4% increased life steal (non-player targets)
+			Gives lifesteal effect based on damage dealt.
+			5% increased life steal (non-player targets)
 			4% increased attack speed (melee)
-			When below 15% health, receives 6% life steal and 8% attack speed instead.
+			Lifesteal amount limit per hit: 3 HP (4 HP if it's a critical).
+			When below 15% HP, all bonuses are increased and heal cooldown is reduced.
 			'''
 	}
 }
