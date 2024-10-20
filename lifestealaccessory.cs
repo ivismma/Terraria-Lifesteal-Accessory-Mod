@@ -10,7 +10,7 @@ using System;
 namespace lifestealaccessory{
     public class LifeStealPlayer : ModPlayer{
         public bool HasLifeStealAccessory = false; // FLAG
-        public readonly int healCooldown = 410;    // em millisegundos
+        public readonly int healCooldown = 340;    // em millisegundos
 
         // Sobrescrever OnHitNPC p/ lifesteal...
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone){
