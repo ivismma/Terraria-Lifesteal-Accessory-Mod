@@ -10,16 +10,20 @@ namespace lifestealaccessory.Items.Accessories{
         // ADICIONAR LOOT DROP:
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot){
             int itemID = ModContent.ItemType<Items.Accessories.VampireClaw>();
-            if(npc.netID == 174) // Herpling (Crimson)                                      // 0.5% CHANCE (1/200)
+            if(npc.netID == 174) // Herpling (Crimson)                        // 0.5% CHANCE (1/200)
                 npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
-            if(npc.netID == 94) // Corruptor (Corruption)                                   // 0.5% CHANCE (1/200)
+            if(npc.netID == 94) // Corruptor (Corruption)                     // 0.5% CHANCE (1/200)
                 npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
         }
     }
 
     public class VampireClaw : ModItem{
-        public static readonly float LifeStealPercentage = 0.05f; // 5% de roubo de vida
-        public static DateTime lastHeal = DateTime.Now; // tempo no último heal
+        public readonly int[] blacklisted_weapons = new int[] {1569, 3006}; 
+                                            // Vampire Claw e Life Drain
+
+        public static readonly float LifeStealPercentage = 0.05f;
+        public static readonly float nearDeathBonus = 0.04f;
+        public static DateTime lastHeal = DateTime.Now;
 
         public override void SetStaticDefaults(){
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -29,14 +33,17 @@ namespace lifestealaccessory.Items.Accessories{
 			Item.width = 16;
             Item.height = 16;
             Item.accessory = true;
-            Item.rare = 4;           // P G  S C         
-            Item.value = Item.sellPrice(0,5,0,0); // 5 Gold
+            Item.rare = 4;
+            Item.value = Item.sellPrice(0,5,0,0); // P G S C <-- 5 Gold
             // Preço médio de reforja de buff no NPC Goblin: Apróx 3x o preço do sellPrice.
         }
         
         public override void UpdateAccessory(Player player, bool hideVisual){
             LifeStealPlayer modPlayer = player.GetModPlayer<LifeStealPlayer>();
-            modPlayer.HasLifeStealAccessory = true;
+
+            if(!Array.Exists(blacklisted_weapons, element => element == player.HeldItem.type))
+                modPlayer.HasLifeStealAccessory = true;
+            
             player.GetAttackSpeed(DamageClass.Melee) += (!modPlayer.nearDeath())? 0.04f : 0.08f;
         }                                                   // Melee Atk Speed:    4%      8%
     }
