@@ -3,24 +3,30 @@ using Terraria.ModLoader;
 using Terraria.Localization;
 using Terraria.ID;
 using Terraria;
-using lifestealaccessory.Items.Accessories;
 using System;
+
+using lifestealaccessory.Items.Accessories;
+using modconfig;
+
 // using System.Collections.Generic;
 
 namespace lifestealaccessory{
     public class LifeStealPlayer : ModPlayer{
+        public static LifeStealConfig config = ModContent.GetInstance<LifeStealConfig>();
+        public static float percentage = config.lifestealPercentage/100f;
+        public static float percentage_neardeath = config.lifestealPercentage2/100f;
+
+        public static DateTime currentTime;
+        public static DateTime lastHeal = DateTime.Now;
         public bool HasLifeStealAccessory = false; // FLAG
         public bool spectreSet = false;
-
-        float percentage = VampireClaw.LifeStealPercentage;
-        public readonly int healCooldown = 340;    // em millisegundos
 
         public readonly int[] blacklisted_npcs = new int[] {422, 488, 493, 507, 517}; 
         // Blacklisted: Target Dummy e os pilares pré-moonlord
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone){
-            DateTime currentTime = DateTime.Now; // Momento atual
-
+            currentTime = DateTime.Now; // Momento atual
+            
             // Player pode até curar usando o set, mas não junto com o set bonus (dano mágico):
             if(spectreSet && hit.DamageType is MagicDamageClass)
                 return;
@@ -29,25 +35,25 @@ namespace lifestealaccessory{
                 int lifeStealAmount = (int) (damageDone * percentage);
 
                 if(!nearDeath()){
-                    if((currentTime - VampireClaw.lastHeal).TotalMilliseconds < healCooldown)
+                    if((currentTime - lastHeal).TotalMilliseconds < config.healCooldown)
                         return;
                         
                     if(!hit.Crit) // Normal
-                        lifeStealAmount = (lifeStealAmount > 3)? 3 : lifeStealAmount;
+                        lifeStealAmount = (lifeStealAmount > config.maxHeal)? config.maxHeal : lifeStealAmount;
                     else          // Crítico
-                        lifeStealAmount = (lifeStealAmount > 4)? 4 : lifeStealAmount;
+                        lifeStealAmount = (lifeStealAmount > config.maxHealCrit)? config.maxHealCrit : lifeStealAmount;
                 }
                 else{
-                    if((currentTime - VampireClaw.lastHeal).TotalMilliseconds < healCooldown/2)
+                    if((currentTime - lastHeal).TotalMilliseconds < config.healCooldown/2)
                         return;
                     
-                    lifeStealAmount += (int) (damageDone * VampireClaw.nearDeathBonus);
-                    lifeStealAmount = (lifeStealAmount > 7)? 7 : lifeStealAmount;
+                    lifeStealAmount += (int) (damageDone * percentage_neardeath);
+                    lifeStealAmount = (lifeStealAmount > config.maxHealPassive)? config.maxHealPassive : lifeStealAmount;
                 }
                 if(lifeStealAmount > 0){
                     Main.LocalPlayer.statLife += lifeStealAmount; // Adiciona HP.
                     Main.LocalPlayer.HealEffect(lifeStealAmount); // Efeito visual da quantidade curada.
-                    VampireClaw.lastHeal = currentTime;           // Atualiza momento do último heal
+                    lastHeal = currentTime;           // Atualiza momento do último heal
                 }
             }
         }

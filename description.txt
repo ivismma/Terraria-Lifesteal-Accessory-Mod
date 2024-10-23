@@ -17,5 +17,7 @@ Obtainable by: Mob drop (Hardmode)
 0.5% - Herpling (Crimson)
 0.5% - Corruptor (Corruption)
 
+This mod offers mod configuration support.
+
 Coded by: me
 Icon by: liber

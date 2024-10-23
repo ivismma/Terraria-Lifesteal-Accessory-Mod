@@ -5,25 +5,24 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Creative;
 using System;
 
+using lifestealaccessory;
+
 namespace lifestealaccessory.Items.Accessories{
     internal class NPCLOOT : GlobalNPC{
         // ADICIONAR LOOT DROP:
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot){
             int itemID = ModContent.ItemType<Items.Accessories.VampireClaw>();
+            int dropChance = LifeStealPlayer.config.dropChance;
             if(npc.netID == 174) // Herpling (Crimson)                        // 0.5% CHANCE (1/200)
-                npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(itemID,dropChance, 1, 1));
             if(npc.netID == 94) // Corruptor (Corruption)                     // 0.5% CHANCE (1/200)
-                npcLoot.Add(ItemDropRule.Common(itemID,200, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(itemID,dropChance, 1, 1));
         }
     }
 
     public class VampireClaw : ModItem{
         public readonly int[] blacklisted_weapons = new int[] {1569, 3006}; 
                                             // Vampire Claw e Life Drain
-
-        public static readonly float LifeStealPercentage = 0.05f;
-        public static readonly float nearDeathBonus = 0.04f;
-        public static DateTime lastHeal = DateTime.Now;
 
         public override void SetStaticDefaults(){
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
