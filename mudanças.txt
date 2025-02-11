@@ -1,0 +1,17 @@
+(a partir de v5.1)
+
+v5.1:
+- otimização: as blacklists agora usam HashSets ao invés de array
+(para ganho de performance, checagens O(1) ).
+
+- limpeza e reorganização geral do código e funções. Outras alterações como:
+	> LifeStealPlayer agora é classe *partial*;
+	> Criado LifeStealPlayer.BlackList (sua outra parte);
+	> Uso de constantes (nomes) do id de NPCs e armas para melhor legibilidade
+	(ao invés de somente o ID do item/npc).
+	> Flag NearDeath criada ao invés de somente o uso da função NearDeath().
+	> NearDeath é atualizada em tempo real no UpdateAccessory (VampireClaw.cs).
+	> Algumas funções alteradas/otimizadas e criação de outras.
+
+- renomeado lifestealaccessory.cs para LifeStealAccessory.cs
+(lifestealaccessory.cs removido do github)
