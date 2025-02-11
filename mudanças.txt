@@ -14,4 +14,3 @@ v5.1:
 	> Algumas funções alteradas/otimizadas e criação de outras.
 
 - renomeado lifestealaccessory.cs para LifeStealAccessory.cs
-(lifestealaccessory.cs removido do github)
