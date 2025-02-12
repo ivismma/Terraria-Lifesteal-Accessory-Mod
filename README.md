@@ -13,7 +13,7 @@ No início do desenvolvimento, o mod possuía muito menos funcionalidades (como 
 No entanto, através testes e feedback de playerso mod atingiu um ótimo estado de balanceamento e com maior quantidade de recursos.<br>
 
 Por se tratar de um mod pequeno, eu não utilizei [versionamento semântico](https://www.alura.com.br/artigos/versionamento-semantico-breve-introducao) na nomeação de versões do mod.
-Sendo assim, o primeiro dígito é alterador quando grandes mudanças são feitas (major), e o segundo dígito, pequenas mudanças (minor) -> **(vX.X)**.
+Sendo assim, o primeiro dígito é sempre alterado quando grandes mudanças são feitas (major), e o segundo dígito, pequenas mudanças (minor) -> **(vX.X)**.
 
 **Até a  atualização v5.1, o mod possui mais de 80 adições a mod collections (modpacks) de players e mais de 1500 downloads, a meta é que esses valores continuem
 crescendo.**<br>
