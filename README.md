@@ -61,8 +61,8 @@ O item possui os seguintes [stats](https://terraria.fandom.com/wiki/Player_stats
 <h4>Como conseguir o item:</h4>
 
   - O item não possui crafting e é obtido através de Loot Drop:
-  > [Herpling](https://terraria.fandom.com/wiki/Herpling) - Chance: 0.5%.<br>
-  > [Corruptor](https://terraria.fandom.com/wiki/Corruptor) - Chance: 0.5%.
+    > [Herpling](https://terraria.fandom.com/wiki/Herpling) - Chance: 0.5%.<br>
+    > [Corruptor](https://terraria.fandom.com/wiki/Corruptor) - Chance: 0.5%.
 
 Ambos podem ser encontrados no bioma [Crimson](https://terraria.fandom.com/wiki/The_Crimson) e [Corruption](https://terraria.fandom.com/wiki/The_Corruption), respectivamente.
 
