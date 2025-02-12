@@ -10,7 +10,7 @@ O atributo "roubo de vida" não existe no jogo, o que torna esse recurso bem rar
 Esse mod oferece o uso desse acessório como se fosse mais um "atributo" do personagem, permitindo uma grande variedade de "builds" e sendo possível combinar com diversas armas do jogo.<br>
 
 No início do desenvolvimento, o mod possuía muito menos funcionalidades (como a restrição de armas/NPCs, heal cooldown) e uma **qualidade de balanceamento** muito inferior ao que possui hoje. 
-No entanto, através testes e feedback de playerso mod atingiu um ótimo estado de balanceamento e com maior quantidade de recursos.<br>
+No entanto, através de testes e feedback de players o mod atingiu um ótimo estado de balanceamento e com maior quantidade de recursos.<br>
 
 Por se tratar de um mod pequeno, eu não utilizei [versionamento semântico](https://www.alura.com.br/artigos/versionamento-semantico-breve-introducao) na nomeação de versões do mod.
 Sendo assim, o primeiro dígito é sempre alterado quando grandes mudanças são feitas (major), e o segundo dígito, pequenas mudanças (minor) -> **(vX.X)**.
@@ -34,7 +34,8 @@ Menu principal do jogo > Workshop > Download Mods > (Buscar o nome do mod e se i
 
 O item possui os seguintes [stats](https://terraria.fandom.com/wiki/Player_stats):
 - Adiciona 5% de roubo de vida (não se aplica em PvP).<br>
-- Adiciona 4% de velocidade de ataque em armas da [classe Melee](https://terraria.fandom.com/wiki/Melee_weapons).
+- Adiciona 4% de velocidade de ataque em armas da [classe Melee](https://terraria.fandom.com/wiki/Melee_weapons).<br>
+Obs.: *Roubo de vida é a quantidade de cura recebida com base no dano causado a inimigos.*
 
 <h4>Informações de balanceamento:</h4>
 
