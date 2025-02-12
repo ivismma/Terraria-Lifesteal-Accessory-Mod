@@ -5,42 +5,54 @@ using modconfig;
 
 namespace lifestealaccessory{
     public partial class LifeStealPlayer : ModPlayer{
-        public static LifeStealConfig config = ModContent.GetInstance<LifeStealConfig>();
-        public static float percentage = config.lifestealPercentage/100f;
-        public static float percentage_neardeath = config.lifestealPercentage2/100f;
+        private static LifeStealConfig config = ModContent.GetInstance<LifeStealConfig>();
+        public static LifeStealConfig Config {
+            get{
+                return config;
+            }
+            private set {
+                config = value;
+            }
+        }
+        private static float percentage = config.lifestealPercentage/100f;
+        private static float percentage_neardeath = config.lifestealPercentage2/100f;
 
-        public static DateTime lastHeal = DateTime.MinValue;
+        private static DateTime lastHeal = DateTime.MinValue;
         
         // FLAGS:
-        public bool HasLifeStealAccessory = false;
-        public bool NearDeath = false; 
+        public static bool HasLifeStealAccessory = false;
+        public static bool NearDeath = false; 
 
-        public bool canLifeSteal(int npcID, DateTime currentTime){  // Função para verificar se pode ou não roubar vida...
-            return  HasLifeStealAccessory && 
-                    !isOnCooldown(currentTime) && 
-                    !npc_BlackList.Contains(npcID);
+        // verificar se pode ou não roubar vida:
+        public bool canLifeSteal(int npcID, NPC.HitInfo hit, DateTime currentTime){  
+            return  !(spectreSet && hit.DamageType is MagicDamageClass) && // usando set de spectre e dano mágico?
+                    !isOnCooldown(currentTime) &&                          // está em cooldown?
+                    !npc_BlackList.Contains(npcID);                        // npc que está sofrendo dano é blacklisted?
         }
 
         public bool isOnCooldown(DateTime currentTime){
-            if(NearDeath)
-                return (currentTime - lastHeal).TotalMilliseconds < config.healCooldown/2;
-            else
-                return (currentTime - lastHeal).TotalMilliseconds < config.healCooldown;
+            double diff = (currentTime - lastHeal).TotalMilliseconds;
+            
+            return (NearDeath)? diff < config.healCooldown/2 : diff < config.healCooldown;
         }
 
         public void ApplyHeal(int amount, DateTime currentTime){
-            Main.LocalPlayer.statLife += amount; // adiciona HP.
-            Main.LocalPlayer.HealEffect(amount); // efeito visual da cura.
-            lastHeal = currentTime;              // atualiza momento do último heal
+            Player player = Main.LocalPlayer;
+            if(player.statLife == 0)
+                return; // evita efeitos visuais de cura mesmo causando dano após morto.
+            
+            player.statLife += amount; // adiciona HP.
+            player.HealEffect(amount); // efeito visual da cura.
+            lastHeal = currentTime;    // atualiza novo momento do último heal
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone){
-            DateTime currentTime = DateTime.Now; // Momento atual
+            if(!HasLifeStealAccessory)
+                return; // acessório não está equipado.
             
-            if(spectreSet && hit.DamageType is MagicDamageClass)
-                return;
+            DateTime currentTime = DateTime.Now; // momento atual
 
-            if(canLifeSteal(target.netID, currentTime)){
+            if(canLifeSteal(target.netID, hit, currentTime)){
                 int lifeStealAmount = (int) (damageDone * percentage);
 
                 if(!NearDeath){

@@ -1,16 +1,6 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
-using Terraria.Localization;
-using Terraria.ID;
-using Terraria;
-using lifestealaccessory;
-using lifestealaccessory.Items.Accessories;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.Serialization;
-// using System.Collections.Generic;
 
 namespace modconfig{
     public class LifeStealConfig : ModConfig{
@@ -42,7 +32,7 @@ namespace modconfig{
 
         [Label("Max heal (Critical hit)")]
         [Tooltip("Set the max HP heal per critical hit (default: 4HP)")]
-        [Range(1, 8)] // Define o intervalo de valores permitido
+        [Range(2, 8)] // Define o intervalo de valores permitido
         [Increment(1)]
         [Slider]
         [DefaultValue(4)]
@@ -50,7 +40,7 @@ namespace modconfig{
 
         [Label("Max heal (Near Death) ")]
         [Tooltip("Set the max HP heal per hit when \"Near Death\" is active (default: 7HP)")]
-        [Range(1, 12)] // Define o intervalo de valores permitido
+        [Range(3, 12)] // Define o intervalo de valores permitido
         [Increment(1)]
         [Slider]
         [DefaultValue(7)]

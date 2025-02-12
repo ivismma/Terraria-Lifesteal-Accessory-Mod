@@ -4,10 +4,56 @@ Items: {
 		Tooltip:
 			'''
 			Gives lifesteal effect based on damage dealt.
-			5% increased life steal (non-player targets)
-			4% increased attack speed (melee)
-			Lifesteal amount limit per hit: 3 HP (4 HP if it's a critical).
-			When below 15% HP, all bonuses are increased and heal cooldown is reduced.
+			% increased life steal (non-player targets)
+			% increased attack speed (melee)
+			Lifesteal amount limit per hit: 
+			Passive: When below 15% HP, all effects and limits are increased. Heal cooldown is halved.
 			'''
+	}
+}
+
+Configs: {
+	LifeStealConfig: {
+		DisplayName: Life Steal Config
+
+		lifestealPercentage: {
+			Label: Lifesteal Percentage
+			Tooltip: Set the percentage of lifesteal for the Vampire Claw
+		}
+
+		IncrementByPoint11: {
+			Label: Increment By Point11
+			Tooltip: ""
+		}
+
+		maxHeal: {
+			Label: Max heal (Normal hit)
+			Tooltip: ""
+		}
+
+		maxHealCrit: {
+			Label: Max heal (Critical hit)
+			Tooltip: ""
+		}
+
+		healCooldown: {
+			Label: Heal cooldown
+			Tooltip: Set the amount of the cooldown between heals (in milliseconds)
+		}
+
+		maxHealPassive: {
+			Label: Max heal (Near Death)
+			Tooltip: Set the max HP heal per critical hit
+		}
+
+		lifestealPercentage2: {
+			Label: Lifesteal bonus (%) when Near Death is active
+			Tooltip: Set the bonus Lifesteal % when "Near Death" is active
+		}
+
+		dropChance: {
+			Label: Drop Rate (1 in ...)
+			Tooltip: Set the drop chance from Herpling and Corruptor mobs
+		}
 	}
 }

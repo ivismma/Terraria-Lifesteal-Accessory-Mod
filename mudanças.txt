@@ -1,8 +1,12 @@
+changes & hidden changes inclusas
+----------------------------------------------
+----------------------------------------------
+
 (a partir de v5.1)
 
 v5.1:
 - otimização: as blacklists agora usam HashSets ao invés de array
-(para ganho de performance, checagens O(1) ).
+(checagens O(1) ).
 
 - limpeza e reorganização geral do código e funções. Outras alterações como:
 	> LifeStealPlayer agora é classe *partial*;
@@ -14,3 +18,17 @@ v5.1:
 	> Algumas funções alteradas/otimizadas e criação de outras.
 
 - renomeado lifestealaccessory.cs para LifeStealAccessory.cs
+(lifestealaccessory.cs removido do github)
+----------------------------------------------
+v5.2:
+- pequenas mudanças no código;
+- a descrição da Vampire Claw não mostrará mais valores errados caso o player
+modifique os valores padrões do mod, agora ela respeita a config atual setada
+(função ModifyTooltips - VampireClaw.cs);
+- alterado o multiplicador de atk speed de 2x para 2.5x quando a passiva está ativada
+consequentemente, o bônus de atk speed agora é aumentado para 10% ao invés de 8%;
+- Alterado *valores minimos* para critical hit e passiva na configuração 
+de 1, 1 para 2,3, respectivamente;
+- adicionado tratamento na função de aplicar cura para evitar que caso 
+o player cause dano após morto, não apareçam efeitos visuais de cura.
+(na barra de HP e no player.HealEffect() ), também não atualiza momento do lastHeal.

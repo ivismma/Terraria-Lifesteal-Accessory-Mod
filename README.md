@@ -46,8 +46,8 @@ O item possui os seguintes [stats](https://terraria.fandom.com/wiki/Player_stats
 - **Existe um "cooldown" de 0.260ms entre curas**, esse cooldown é reduzido pela metade (0.130ms) quando o jogador está com a passiva Near Death ativada.
 - A passiva "Near Death" é ativada quando a vida atual do jogador é igual ou inferior a 15% da sua vida máxima. Além disso:
 
-  > O jogador recebe um bônus de 4% de roubo de vida e 4% de velocidade de ataque (Melee), totalizando 9% de roubo de vida e 8% de
-  >  velocidade de ataque.
+  > O jogador recebe um bônus de 4% de roubo de vida e 4% de velocidade de ataque (Melee), totalizando 9% de roubo de vida e 10% de
+  >  velocidade de ataque (2.5x o valor básico).
 
 - **O efeito de roubo de vida desse acessório não é aplicado nos seguintes casos**:
 

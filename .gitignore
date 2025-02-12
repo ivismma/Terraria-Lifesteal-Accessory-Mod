@@ -1,0 +1,35 @@
+# Diretórios de build que não precisam ser versionados
+bin/
+obj/
+
+# Configurações do Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs, caches e temporários
+*.log
+*.cache
+*.tmp
+*.ncb
+*.pidb
+*.svclog
+
+# Arquivos do NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Configuração do Rider (caso use JetBrains Rider)
+.idea/
+*.iml
+
+# Configurações de depuração
+*.pdb
+
+# Arquivos de lock do sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
