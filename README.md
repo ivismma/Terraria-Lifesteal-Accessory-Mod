@@ -21,7 +21,7 @@ crescendo.**<br>
 Documentação do tModloader que serve de grande utilidade no desenvolvimento:
 https://docs.tmodloader.net/docs/stable/index.html <br>
 
-<h2>Como usar o mod:</h2>
+<h2>Como instalar o mod:</h2>
 
 Para adicionar o mod ao seu jogo você tem as seguintes alternativas (considerando que seu jogo está em inglês):
 - Abrir o [Terraria](https://store.steampowered.com/app/105600/Terraria/) com o tModLoader e procurar pelo nome do mod através da lista de mods:
@@ -29,8 +29,6 @@ Menu principal do jogo > Workshop > Download Mods > (Buscar o nome do mod e se i
 - Você também pode apenas procurá-lo diretamente na [Workshop do Terraria](https://steamcommunity.com/app/105600/workshop/), na Steam.
 
 **Link do mod na workshop da Steam com todas as notas de alterações (patch-notes): https://tinyurl.com/mwpakyeh**<br>
-
-Ícone/modelo criado pelo meu amigo: Nícolas Fernandes.
 
 <h2>Informações para jogadores de Terraria - Vampire Claw:</h2>
 
@@ -54,13 +52,13 @@ O item possui os seguintes [stats](https://terraria.fandom.com/wiki/Player_stats
 - **O efeito de roubo de vida desse acessório não é aplicado nos seguintes casos**:
 
   > - O jogador está equipado com o set de Spectre e está aplicando dano mágico.<br>
-  >*Obs: O [armor set de Spectre](https://terraria.fandom.com/wiki/Spectre_armor) é uma armadura para magos (nativa do Terraria) que já possui efeitos de roubo de vida com dano mágico.*<br>
-  > - O jogador está utilizando a [Vampire Knives](https://terraria.fandom.com/wiki/Vampire_Knives) ou [Life Drain](https://terraria.fandom.com/wiki/Life_Drain), ambos armas que já aplicam roubo de vida.
-  > - O jogador atingiu NPCs que são considerados inofensivos, ou são uma entidade do jogo, por ex.: [Target Dummy](https://terraria.fandom.com/wiki/Target_Dummy) e os [pilares pré-moonlord](https://terraria.fandom.com/wiki/Celestial_Pillars).
+  >*Obs.: O [armor set de Spectre](https://terraria.fandom.com/wiki/Spectre_armor) é uma armadura para magos (nativa do Terraria) que já possui efeitos de roubo de vida com dano mágico.*<br>
+  > - O jogador está utilizando a [Vampire Knives](https://terraria.fandom.com/wiki/Vampire_Knives) ou [Life Drain](https://terraria.fandom.com/wiki/Life_Drain), ambas armas que já aplicam roubo de vida.
+  > - O jogador atingiu NPCs que são considerados inofensivos/estruturas do jogo, por ex.: [Target Dummy](https://terraria.fandom.com/wiki/Target_Dummy) e os [pilares pré-moonlord](https://terraria.fandom.com/wiki/Celestial_Pillars).
 
 <h4>Como conseguir o item:</h4>
 
-  - O item não possui crafting e é obtido através de Loot Drop:
+  - O item não possui crafting e é obtido exclusivamente através de Loot Drop:
     > [Herpling](https://terraria.fandom.com/wiki/Herpling) - Chance: 0.5%.<br>
     > [Corruptor](https://terraria.fandom.com/wiki/Corruptor) - Chance: 0.5%.
 
@@ -70,3 +68,5 @@ Ambos podem ser encontrados no bioma [Crimson](https://terraria.fandom.com/wiki/
 
 Todos os valores de balanceamento foram definidos com base no feedback de players que usaram o mod e diversos testes feitos por mim.<br><br>
 **A partir da atualização 4.0 desse mod**, o jogador pode alterar esses valores (padrões) a seu gosto (que foram criados para manter uma gameplay balanceada) através do menu principal, em "Manage Mods" e clicando na engrenagem.
+
+Ícone/modelo criado pelo meu amigo: Nícolas Fernandes.
