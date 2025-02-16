@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using System;
 using modconfig;
+using Terraria.ID;
 
 namespace lifestealaccessory{
     public partial class LifeStealPlayer : ModPlayer{
@@ -20,14 +21,16 @@ namespace lifestealaccessory{
         private static DateTime lastHeal = DateTime.MinValue;
         
         // FLAGS:
-        public static bool HasLifeStealAccessory = false;
+        public static bool HasLifeStealEffect = false;
         public static bool NearDeath = false; 
 
         // verificar se pode ou não roubar vida:
-        public bool canLifeSteal(int npcID, NPC.HitInfo hit, DateTime currentTime){  
-            return  !(spectreSet && hit.DamageType is MagicDamageClass) && // usando set de spectre e dano mágico?
-                    !isOnCooldown(currentTime) &&                          // está em cooldown?
-                    !npc_BlackList.Contains(npcID);                        // npc que está sofrendo dano é blacklisted?
+        public bool canLifeSteal(NPC target, NPC.HitInfo hit, DateTime currentTime){
+            return !isOnCooldown(currentTime) &&                          // está em cooldown?
+                   !(spectreSet && hit.DamageType is MagicDamageClass) && // usando set de spectre e dano mágico?
+                   !npc_BlackList.Contains(target.netID) &&               // npc alvo é blacklisted?
+                   !hasMoonBiteDebuff() &&                                // está com debuff do moon lord?
+                   target.aiStyle != NPCAIStyleID.Passive;                // não é npc passivo (insetos/coelhos/etc)
         }
 
         public bool isOnCooldown(DateTime currentTime){
@@ -37,22 +40,22 @@ namespace lifestealaccessory{
         }
 
         public void ApplyHeal(int amount, DateTime currentTime){
-            Player player = Main.LocalPlayer;
-            if(player.statLife == 0)
+            if(Player.statLife == 0)
                 return; // evita efeitos visuais de cura mesmo causando dano após morto.
             
-            player.statLife += amount; // adiciona HP.
-            player.HealEffect(amount); // efeito visual da cura.
+            Player.statLife += amount; // adiciona HP.
+            Player.HealEffect(amount); // efeito visual da cura.
+
             lastHeal = currentTime;    // atualiza novo momento do último heal
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone){
-            if(!HasLifeStealAccessory)
-                return; // acessório não está equipado.
-            
+            if(!HasLifeStealEffect)
+                return; // acessório não está equipado ou está restringido.
+
             DateTime currentTime = DateTime.Now; // momento atual
 
-            if(canLifeSteal(target.netID, hit, currentTime)){
+            if(canLifeSteal(target, hit, currentTime)){
                 int lifeStealAmount = (int) (damageDone * percentage);
 
                 if(!NearDeath){
@@ -67,13 +70,13 @@ namespace lifestealaccessory{
                     lifeStealAmount += (int) (damageDone * percentage_neardeath);
                     lifeStealAmount = (lifeStealAmount > config.maxHealPassive)? config.maxHealPassive : lifeStealAmount;
                 }
-                if(lifeStealAmount > 0)
-                    ApplyHeal(lifeStealAmount, currentTime);                  
+                if (lifeStealAmount > 0)
+                    ApplyHeal(lifeStealAmount, currentTime);
             }
         }
-    
+
         public override void ResetEffects(){ 
-            HasLifeStealAccessory = false;
+            HasLifeStealEffect = false;
         } // sem isso o efeito de LifeSteal persiste após desequipar o item
     }
 }

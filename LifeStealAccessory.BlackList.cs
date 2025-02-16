@@ -25,14 +25,17 @@ namespace lifestealaccessory{
     
         // verifica se o player está usando o set completo de Spectre
         public bool isUsingSpectreSet(){
-            Player player = Main.LocalPlayer; 
-            return  player.armor[0].type == ItemID.SpectreHood && 
-                    player.armor[1].type == ItemID.SpectreRobe && 
-                    player.armor[2].type == ItemID.SpectreBoots;
+            return Player.armor[0].type == ItemID.SpectreHood &&
+                   Player.armor[1].type == ItemID.SpectreRobe &&
+                   Player.armor[2].type == ItemID.SpectrePants;
+        }
+
+        public bool hasMoonBiteDebuff() {
+            return Player.HasBuff(BuffID.MoonLeech); // Moon Bite
         }
 
         // atualiza se está ou não usando o set
-        public override void PostUpdateEquips(){
+        public override void PostUpdateEquips() {
             spectreSet = isUsingSpectreSet();
         }
     }

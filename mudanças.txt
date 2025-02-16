@@ -32,3 +32,14 @@ de 1, 1 para 2,3, respectivamente;
 - adicionado tratamento na função de aplicar cura para evitar que caso 
 o player cause dano após morto, não apareçam efeitos visuais de cura.
 (na barra de HP e no player.HealEffect() ), também não atualiza momento do lastHeal.
+----------------------------------------------
+v5.3:
+- melhorias de código
+- o mod agora respeita o debuff corta cura do moon lord.
+(https://terraria.wiki.gg/wiki/Moon_Bite)
+- agora não rouba vida de NPCs passivos ("critters") 
+(https://docs.tmodloader.net/docs/stable/class_n_p_c_a_i_style_i_d.html)
+- descrição faltante no mod config consertado
+- corrigido bug na descrição quando equipado em social slot
+- corrigido checagem do set de spectre, ocorreu no patch 5.1, quando mudei a escrita do código de
+ de ID 1503, 1504 e 1505 para ItemID.SpectreHood, ...Robe e --> SpectreBoots ao invés de SpectrePants

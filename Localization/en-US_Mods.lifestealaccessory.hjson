@@ -14,26 +14,21 @@ Items: {
 
 Configs: {
 	LifeStealConfig: {
-		DisplayName: Life Steal Config
+		DisplayName: Item Config
 
 		lifestealPercentage: {
 			Label: Lifesteal Percentage
 			Tooltip: Set the percentage of lifesteal for the Vampire Claw
 		}
 
-		IncrementByPoint11: {
-			Label: Increment By Point11
-			Tooltip: ""
-		}
-
 		maxHeal: {
 			Label: Max heal (Normal hit)
-			Tooltip: ""
+			Tooltip: Set the max HP heal per normal hit
 		}
 
 		maxHealCrit: {
 			Label: Max heal (Critical hit)
-			Tooltip: ""
+			Tooltip: Set the max HP heal per critical hit
 		}
 
 		healCooldown: {
@@ -43,7 +38,7 @@ Configs: {
 
 		maxHealPassive: {
 			Label: Max heal (Near Death)
-			Tooltip: Set the max HP heal per critical hit
+			Tooltip: Set the max HP heal per hit when the "Near Death" is active
 		}
 
 		lifestealPercentage2: {
