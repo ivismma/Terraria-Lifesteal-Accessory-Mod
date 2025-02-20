@@ -15,22 +15,26 @@ namespace lifestealaccessory{
                 config = value;
             }
         }
-        private static float percentage = config.lifestealPercentage/100f;
-        private static float percentage_neardeath = config.lifestealPercentage2/100f;
+        public static float percentage = config.lifestealPercentage/100f;
+        public static float percentage_neardeath = config.lifestealPercentage2/100f;
+        public static int mastermode_bonus = config.masterModeBonus;
+        public static int maxheal_normalhit = config.maxHeal;
+        public static int maxheal_crit = config.maxHealCrit;
+        public static int maxheal_passive = config.maxHealPassive;
 
         private static DateTime lastHeal = DateTime.MinValue;
-        
+
         // FLAGS:
         public static bool HasLifeStealEffect = false;
-        public static bool NearDeath = false; 
+        public static bool NearDeath = false;
 
         // verificar se pode ou não roubar vida:
         public bool canLifeSteal(NPC target, NPC.HitInfo hit, DateTime currentTime){
             return !isOnCooldown(currentTime) &&                          // está em cooldown?
                    !(spectreSet && hit.DamageType is MagicDamageClass) && // usando set de spectre e dano mágico?
                    !npc_BlackList.Contains(target.netID) &&               // npc alvo é blacklisted?
-                   !hasMoonBiteDebuff() &&                                // está com debuff do moon lord?
-                   target.aiStyle != NPCAIStyleID.Passive;                // não é npc passivo (insetos/coelhos/etc)
+                   target.aiStyle != NPCAIStyleID.Passive &&              // não é npc passivo (insetos/coelhos/etc)
+                   !hasMoonBiteDebuff();                                  // está com debuff do moon lord?
         }
 
         public bool isOnCooldown(DateTime currentTime){
@@ -56,20 +60,25 @@ namespace lifestealaccessory{
             DateTime currentTime = DateTime.Now; // momento atual
 
             if(canLifeSteal(target, hit, currentTime)){
-                int lifeStealAmount = (int) (damageDone * percentage);
+                int lifeStealAmount;     // qtd. de cura do hit
+                int maxHeal;             // HP cap
+                float totalPercentage = (hit.DamageType is MeleeDamageClass)? percentage : percentage-0.01f;
+                // % total de lifesteal
+                
+                if (Main.masterMode)
+                    totalPercentage += mastermode_bonus/100f;
 
-                if(!NearDeath){
-                    if(!hit.Crit) // Normal
-                        lifeStealAmount = (lifeStealAmount > config.maxHeal)? config.maxHeal : lifeStealAmount;
-                    else          // Crítico
-                        lifeStealAmount = (lifeStealAmount > config.maxHealCrit)? config.maxHealCrit : lifeStealAmount;
+                if (!NearDeath){
+                    lifeStealAmount = (int) (damageDone * totalPercentage);
+                    maxHeal = (!hit.Crit)? maxheal_normalhit: maxheal_crit; // normal/crítico
                 }
-                else{ 
-                    // nearDeath... (cooldown reduzido pela metade e maxHeal aumentado)
-                    
-                    lifeStealAmount += (int) (damageDone * percentage_neardeath);
-                    lifeStealAmount = (lifeStealAmount > config.maxHealPassive)? config.maxHealPassive : lifeStealAmount;
+                else { // nearDeath... (cooldown reduzido pela metade e maxHeal aumentado)
+                    maxHeal = maxheal_passive;               // HP cap da passiva
+                    totalPercentage += percentage_neardeath; // % lifesteal bônus da passiva
+                    lifeStealAmount = (int) (damageDone * totalPercentage);
                 }
+                lifeStealAmount = (lifeStealAmount > maxHeal) ? maxHeal : lifeStealAmount;
+
                 if (lifeStealAmount > 0)
                     ApplyHeal(lifeStealAmount, currentTime);
             }

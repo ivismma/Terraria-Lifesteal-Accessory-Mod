@@ -3,11 +3,12 @@ Items: {
 		DisplayName: Vampire Claw
 		Tooltip:
 			'''
-			Gives lifesteal effect based on damage dealt.
-			% increased life steal (non-player targets)
-			% increased attack speed (melee)
+			Grants lifesteal based on damage dealt
+			% increased life steal at the cost of
+			% increased melee attack speed
 			Lifesteal amount limit per hit: 
-			Passive: When below 15% HP, all effects and limits are increased. Heal cooldown is halved.
+			Non-melee damage lifesteal is reduced by 1%
+			Passive: Below 15% HP, all bonuses increase and heal cooldown is halved.
 			'''
 	}
 }
@@ -21,34 +22,48 @@ Configs: {
 			Tooltip: Set the percentage of lifesteal for the Vampire Claw
 		}
 
+		masterModeBonus: {
+			Label: Bonus Lifesteal Percentage on Master Mode
+			Tooltip: Set the bonus percentage of lifesteal on Master Mode
+		}
+
+		damageReduction: {
+			Label: Overall Damage reduction percentage
+			Tooltip: Set the % of overall damage reduction
+		}
+
+		healCooldown: {
+			Label: Heal Cooldown (in milliseconds)
+			Tooltip: Set the amount of the cooldown between heals
+		}
+
 		maxHeal: {
-			Label: Max heal (Normal hit)
+			Label: Max Heal (Normal hit)
 			Tooltip: Set the max HP heal per normal hit
 		}
 
 		maxHealCrit: {
-			Label: Max heal (Critical hit)
+			Label: Max Heal (Critical hit)
 			Tooltip: Set the max HP heal per critical hit
 		}
 
-		healCooldown: {
-			Label: Heal cooldown
-			Tooltip: Set the amount of the cooldown between heals (in milliseconds)
-		}
-
 		maxHealPassive: {
-			Label: Max heal (Near Death)
+			Label: Max Heal (Near Death)
 			Tooltip: Set the max HP heal per hit when the "Near Death" is active
 		}
 
 		lifestealPercentage2: {
 			Label: Lifesteal bonus (%) when Near Death is active
-			Tooltip: Set the bonus Lifesteal % when "Near Death" is active
+			Tooltip: Set the bonus Lifesteal % when the passive is active
 		}
 
 		dropChance: {
 			Label: Drop Rate (1 in ...)
-			Tooltip: Set the drop chance from Herpling and Corruptor mobs
+			Tooltip:
+				'''
+				Set the drop chance from Herpling and Corruptor mobs
+				The default value is (1/200) => 0.5%
+				'''
 		}
 	}
 }

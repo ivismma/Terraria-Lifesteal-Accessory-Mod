@@ -5,12 +5,15 @@ using System.Collections.Generic;
 
 namespace lifestealaccessory{
     public partial class LifeStealPlayer : ModPlayer{
-        public bool spectreSet;
+        public static bool spectreSet {
+            get;
+            private set;
+        }
         // a restrição de cura com o Spectre Set é aplicada somente quando usado junto com dano mágico
 
         // NPCs blacklisted: Target Dummy e os pilares pré-moonlord:
         public readonly HashSet<int> npc_BlackList = [
-            NPCID.TargetDummy,
+            //NPCID.TargetDummy,
             NPCID.LunarTowerVortex, 
             NPCID.LunarTowerSolar, 
             NPCID.LunarTowerStardust, 
@@ -22,7 +25,15 @@ namespace lifestealaccessory{
             ItemID.VampireKnives,
             ItemID.SoulDrain // (Life Drain)
         ];
-    
+
+        /* não usado por enquanto:
+        // Projéteis blacklisted:
+        public readonly HashSet<int> proj_BlackList = [
+            ProjectileID.VampireKnife,
+            ProjectileID.SoulDrain
+        ];
+        */
+
         // verifica se o player está usando o set completo de Spectre
         public bool isUsingSpectreSet(){
             return Player.armor[0].type == ItemID.SpectreHood &&

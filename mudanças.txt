@@ -43,3 +43,17 @@ v5.3:
 - corrigido bug na descrição quando equipado em social slot
 - corrigido checagem do set de spectre, ocorreu no patch 5.1, quando mudei a escrita do código de
  de ID 1503, 1504 e 1505 para ItemID.SpectreHood, ...Robe e --> SpectreBoots ao invés de SpectrePants
+----------------------------------------------
+v6.0:
+- melhorias no código
+- agora qualquer dano não melee resulta em -1% lifesteal
+- reduzido aumento de cura maxima em acerto critico (ainda configurável)
+- agora reduz em 8% o dano base do player (todas as classes) (configurável)
+- lifesteal bonus da passiva reduzido de 4% para 2%
+- lifesteal reduzido de 5% para 4%
+- heal cooldown aumentado de 0.26s para 0.28s
+- o item agora possui 1% de lifesteal bonus no Master mode (configuravel)
+e a linha que exibe a % de lifesteal fica vermelha, simbolizando o aumento.
+- ajustado Range dos sliders do mod configuration
+- alterar o drop rate do item agora requer force-reload nos mods (para surtir efeito)
+- descrição do item melhorada e atualizada com as adições
