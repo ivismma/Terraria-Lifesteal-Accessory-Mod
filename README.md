@@ -30,21 +30,24 @@ Menu principal do jogo > Workshop > Download Mods > (Buscar o nome do mod e se i
 <h2>Informações para jogadores de Terraria - Vampire Claw:</h2>
 
 O item possui os seguintes [stats](https://terraria.fandom.com/wiki/Player_stats):
-- Adiciona 5% de roubo de vida (não se aplica em PvP).<br>
+- Diminui em 8% todo o dano causado pelo player.<br>
+- Adiciona 3% de roubo de vida (não se aplica em PvP).<br>
+Obs. 1: *Roubo de vida é a quantidade de cura recebida com base no dano causado a inimigos.*<br>
+Obs. 2: No modo [Master Mode](https://terraria.fandom.com/wiki/Master_Mode), há um bônus de 1%, totalizando 4%.<br>
 - Adiciona 4% de velocidade de ataque em armas da [classe Melee](https://terraria.fandom.com/wiki/Melee_weapons).<br>
-Obs.: *Roubo de vida é a quantidade de cura recebida com base no dano causado a inimigos.*
 
 <h4>Informações de balanceamento:</h4>
 
+- **A porcentagem de roubo de vida é reduzida em 1% para dano não meele, caindo para 2% (3% no Master Mode).**<br>
 - A quantidade máxima curada é limitada nos seguintes casos:
   
   > Normal hit:                    3HP<br>
-  > Critical hit (Acerto crítico): 4HP<br>
-  > Passiva ativada (Near Death):  7HP (independente de ter sido acerto crítico)<br>
-- **Existe um "cooldown" de 0.260ms entre curas**, esse cooldown é reduzido pela metade (0.130ms) quando o jogador está com a passiva Near Death ativada.
+  > Critical hit (Acerto crítico): 3HP (porém, configurável)<br>
+  > Passiva ativada (Near Death):  6HP<br>
+- **Existe um "cooldown" de 0.280ms entre curas**, esse cooldown é reduzido pela metade (0.140ms) quando o jogador está com a passiva Near Death ativada.
 - A passiva "Near Death" é ativada quando a vida atual do jogador é igual ou inferior a 15% da sua vida máxima. Além disso:
 
-  > O jogador recebe um bônus de 4% de roubo de vida e 6% de velocidade de ataque (Melee), totalizando 9% de roubo de vida e 10% de
+  > O jogador recebe um bônus de 2% de roubo de vida e 6% de velocidade de ataque (Melee), totalizando 5% de roubo de vida (6% no Master Mode) e 10% de
   >  velocidade de ataque (2.5x o valor básico).
 
 - **O efeito de roubo de vida desse acessório não é aplicado nos seguintes casos**:
