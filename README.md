@@ -15,9 +15,6 @@ No entanto, através de testes e feedback de players o mod atingiu um ótimo est
 Por se tratar de um mod pequeno, eu não utilizei [versionamento semântico](https://www.alura.com.br/artigos/versionamento-semantico-breve-introducao) na nomeação de versões do mod.
 Sendo assim, o primeiro dígito é sempre alterado quando grandes mudanças são feitas (major), e o segundo dígito, pequenas mudanças (minor) -> **(vX.X)**.
 
-**Até a  atualização v5.1, o mod possui mais de 80 adições a mod collections (modpacks) de players e mais de 1500 downloads, a meta é que esses valores continuem
-crescendo.**<br>
-
 Documentação do tModloader que serve de grande utilidade no desenvolvimento:
 https://docs.tmodloader.net/docs/stable/index.html <br>
 
