@@ -44,7 +44,7 @@ Obs. 2: No modo [Master Mode](https://terraria.fandom.com/wiki/Master_Mode), há
   > Normal hit:                    3HP<br>
   > Critical hit (Acerto crítico): 3HP (porém, configurável)<br>
   > Passiva ativada (Near Death):  6HP<br>
-- **Existe um "cooldown" de 0.280ms entre curas**, esse cooldown é reduzido pela metade (0.140ms) quando o jogador está com a passiva Near Death ativada.
+- **Existe um "cooldown" de 0.280s entre curas**, esse cooldown é reduzido pela metade (0.140ms) quando o jogador está com a passiva Near Death ativada.
 - A passiva "Near Death" é ativada quando a vida atual do jogador é igual ou inferior a 15% da sua vida máxima. Além disso:
 
   > O jogador recebe um bônus de 2% de roubo de vida e 6% de velocidade de ataque (Melee), totalizando 5% de roubo de vida (6% no Master Mode) e 10% de
