@@ -57,8 +57,3 @@ e a linha que exibe a % de lifesteal fica vermelha, simbolizando o aumento.
 - ajustado Range dos sliders do mod configuration
 - alterar o drop rate do item agora requer force-reload nos mods (para surtir efeito)
 - descrição do item melhorada e atualizada com as adições
-----------------------------------------------
-v6.1:
-- lancei o patch sem descomentar a linha 16 de LifeStealAccessory.Blacklist.cs 
-quando estava fazendo testes uhul (npc target dummy)
-----------------------------------------------

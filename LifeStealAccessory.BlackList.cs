@@ -13,7 +13,7 @@ namespace lifestealaccessory{
 
         // NPCs blacklisted: Target Dummy e os pilares pré-moonlord:
         public readonly HashSet<int> npc_BlackList = [
-            NPCID.TargetDummy,
+            //NPCID.TargetDummy,
             NPCID.LunarTowerVortex, 
             NPCID.LunarTowerSolar, 
             NPCID.LunarTowerStardust, 
