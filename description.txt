@@ -2,12 +2,14 @@ Adds an hardmode accessory item in the Crimson and Corruption biomes:
 
 Vampire Claw:
 
-- Life Steal: 4% (5% on Master Mode)
+- Reduce player's damage dealth by 8%
+- Life Steal: 3% (4% on Master Mode)
 - Life Steal effect does not apply in PvP
 - Grants bonus 4% attack speed to melee weapons.
 
-- Near Death "Passive" : When below 15% health, receives an additional small boost of lifesteal and attack speed, going up to 6% Lifesteal and 10% melee attack speed.
+- Near Death "Passive" : When below 15% health, receives an additional small boost of lifesteal and attack speed, going up to 5% Lifesteal and 10% melee attack speed.
 
+Check [url=https://steamcommunity.com/workshop/filedetails/discussion/3199806186/604148808450886555/] Current Item Stats[/url] for updated and detailed item info.
 There are balancing tweaks in this accessory.
 Check [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3199806186] patch-notes/changelog [/url] for detailed balancing stuff.
 
@@ -21,4 +23,5 @@ This mod offers mod configuration support.
 All stats info and drop chance are default values, with the intention of maintaining balanced gameplay.
 
 Coded by: me
-Icon by: liber
+Icon by: liber[quote=tModLoader lifestealaccessory]
+Developed By KiruK[/quote]

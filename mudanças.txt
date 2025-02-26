@@ -62,3 +62,10 @@ v6.1:
 - lancei o patch sem descomentar a linha 16 de LifeStealAccessory.Blacklist.cs 
 quando estava fazendo testes uhul (npc target dummy)
 ----------------------------------------------
+v6.2:
+- corrigido bug em que o lifesteal não funcionava direito no modo multiplayer,
+pq defini as flags como variáveis estáticas, estavam sendo compartilhadas pelos players
+----------------------------------------------
+v6.3:
+- Adicionado leve aumento de lifesteal quando o player está com o buff de comida (well fed)
+aumento de 0.2% em Minor, 0.3% em Medium, 0.4% em major improvements.

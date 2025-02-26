@@ -22,11 +22,11 @@ namespace lifestealaccessory{
         public static int maxheal_crit = config.maxHealCrit;
         public static int maxheal_passive = config.maxHealPassive;
 
-        private static DateTime lastHeal = DateTime.MinValue;
+        private DateTime lastHeal = DateTime.MinValue;
 
         // FLAGS:
-        public static bool HasLifeStealEffect = false;
-        public static bool NearDeath = false;
+        public bool HasLifeStealEffect = false;
+        public bool NearDeath = false;
 
         // verificar se pode ou não roubar vida:
         public bool canLifeSteal(NPC target, NPC.HitInfo hit, DateTime currentTime){
@@ -37,6 +37,20 @@ namespace lifestealaccessory{
                    !hasMoonBiteDebuff();                                  // está com debuff do moon lord?
         }
 
+        // Retorna a porcentagem de bônus de lifesteal referente ao buff de
+        // alimento, 0 caso não possua.
+        public float wellFedBuffBonus() {
+            if (Player.HasBuff(BuffID.WellFed))
+                return 0.002f; // + 0.2%
+            else if (Player.HasBuff(BuffID.WellFed2))
+                return 0.003f; // + 0.3%
+            else if (Player.HasBuff(BuffID.WellFed3))
+                return 0.004f; // + 0.4%
+            else
+                return 0; // não possui o buff.
+        }
+        
+
         public bool isOnCooldown(DateTime currentTime){
             double diff = (currentTime - lastHeal).TotalMilliseconds;
             
@@ -44,9 +58,6 @@ namespace lifestealaccessory{
         }
 
         public void ApplyHeal(int amount, DateTime currentTime){
-            if(Player.statLife == 0)
-                return; // evita efeitos visuais de cura mesmo causando dano após morto.
-            
             Player.statLife += amount; // adiciona HP.
             Player.HealEffect(amount); // efeito visual da cura.
 
@@ -54,8 +65,9 @@ namespace lifestealaccessory{
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone){
-            if(!HasLifeStealEffect)
-                return; // acessório não está equipado ou está restringido.
+            if(!HasLifeStealEffect || Player.statLife == 0)
+                return; // acessório não está equipado ou está restringido
+                        // ou player está morto (e causando dano)
 
             DateTime currentTime = DateTime.Now; // momento atual
 
@@ -64,6 +76,8 @@ namespace lifestealaccessory{
                 int maxHeal;             // HP cap
                 float totalPercentage = (hit.DamageType is MeleeDamageClass)? percentage : percentage-0.01f;
                 // % total de lifesteal
+
+                totalPercentage += wellFedBuffBonus(); // bônus de buff de alimento
                 
                 if (Main.masterMode)
                     totalPercentage += mastermode_bonus/100f;

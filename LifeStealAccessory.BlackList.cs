@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace lifestealaccessory{
     public partial class LifeStealPlayer : ModPlayer{
-        public static bool spectreSet {
+        public bool spectreSet {
             get;
             private set;
         }

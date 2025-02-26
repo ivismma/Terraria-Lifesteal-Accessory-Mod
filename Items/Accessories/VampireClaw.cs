@@ -4,6 +4,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using System.Collections.Generic;
+using Terraria.GameContent;
 
 namespace lifestealaccessory.Items.Accessories{
 
@@ -69,17 +70,17 @@ namespace lifestealaccessory.Items.Accessories{
             LifeStealPlayer modPlayerInstance = player.GetModPlayer<LifeStealPlayer>();
 
             if (isNearDeath(player)){ // passiva
-                LifeStealPlayer.NearDeath = true;
+                modPlayerInstance.NearDeath = true;
                 player.GetAttackSpeed(DamageClass.Melee) += attackSpeedBonus*attackSpeedMultiplier;
             }
             else{
-                LifeStealPlayer.NearDeath = false;
+                modPlayerInstance.NearDeath = false;
                 player.GetAttackSpeed(DamageClass.Melee) += attackSpeedBonus; 
             }
             // verifica se arma não é blacklisted
             if (!modPlayerInstance.item_BlackList.Contains(player.HeldItem.netID)) {
                 player.GetDamage(DamageClass.Generic) *= (float)(1 - damageReduction);
-                LifeStealPlayer.HasLifeStealEffect = true;
+                modPlayerInstance.HasLifeStealEffect = true;
             }
         }
     }
