@@ -33,13 +33,13 @@ namespace lifestealaccessory{
             return !isOnCooldown(currentTime) &&                          // está em cooldown?
                    !(spectreSet && hit.DamageType is MagicDamageClass) && // usando set de spectre e dano mágico?
                    !npc_BlackList.Contains(target.netID) &&               // npc alvo é blacklisted?
-                   target.aiStyle != NPCAIStyleID.Passive &&              // não é npc passivo (insetos/coelhos/etc)
+                   !npcAi_BlackList.Contains(target.aiStyle) &&           // não é npc passivo (insetos/coelhos/etc)
                    !hasMoonBiteDebuff();                                  // está com debuff do moon lord?
         }
 
         // Retorna a porcentagem de bônus de lifesteal referente ao buff de
         // alimento, 0 caso não possua.
-        public float wellFedBuffBonus() {
+        private float wellFedBuffBonus() {
             if (Player.HasBuff(BuffID.WellFed))
                 return 0.002f; // + 0.2%
             else if (Player.HasBuff(BuffID.WellFed2))

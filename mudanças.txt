@@ -69,3 +69,11 @@ pq defini as flags como variáveis estáticas, estavam sendo compartilhadas pelo
 v6.3:
 - Adicionado leve aumento de lifesteal quando o player está com o buff de comida (well fed)
 aumento de 0.2% em Minor, 0.3% em Medium, 0.4% em major improvements.
+----------------------------------------------
+v6.4:
+- melhoria e reformulação da lógica da função ModifyTooltips de modo que não cause problemas quando
+o player tem mods que alteram o início da descrição ou o item está marcado como favorito, por ex.
+- adicionado NPCs de NPCAIStyle -> "Birds" e "CritterWorm" que não devem permitir roubo de vida,
+seguindo o mesmo padrão da Vampire Knives, para isso foi criada um novo hashset para a blacklist de
+todos os aiStyles não permitidos.
+https://docs.tmodloader.net/docs/stable/class_n_p_c_a_i_style_i_d.html

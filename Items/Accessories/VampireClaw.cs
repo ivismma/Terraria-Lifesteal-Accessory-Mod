@@ -5,6 +5,8 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using System.Collections.Generic;
 using Terraria.GameContent;
+using modconfig;
+using System.Linq;
 
 namespace lifestealaccessory.Items.Accessories{
 
@@ -48,21 +50,25 @@ namespace lifestealaccessory.Items.Accessories{
             int percentage = LifeStealPlayer.Config.lifestealPercentage;
             int maxHeal = LifeStealPlayer.Config.maxHeal;
             int maxHealCrit = LifeStealPlayer.Config.maxHealCrit;
+            int dr = LifeStealPlayer.Config.damageReduction;
 
-            if (Main.masterMode) { // altera cor na descrição do item quando em Master Mode
-                percentage += LifeStealPlayer.Config.masterModeBonus;
-                tooltips[3].OverrideColor = Microsoft.Xna.Framework.Color.Red;
+            int t1_index; // indice do 1º tooltip dinâmico do item
+
+            { // escopo só p/ 2ª linha, que possui alguns detalhes diferentes no Master Mode
+                t1_index = tooltips.FindIndex(tl => tl.Text == "LifestealInfo");
+                if (Main.masterMode) {
+                    tooltips[t1_index].OverrideColor = Microsoft.Xna.Framework.Color.Red; // deixa linha em vermelho
+                    percentage += LifeStealPlayer.Config.masterModeBonus;
+                }
+                tooltips[t1_index].Text = percentage + "% " + "increased lifesteal at the cost of " + dr + "% reduced overall damage dealt";
             }
-
-            tooltips[3].Text = percentage + tooltips[3].Text + " " + (int) (damageReduction*100) + "% reduced overall damage";
-            tooltips[4].Text = 100*attackSpeedBonus + tooltips[4].Text;
-            if(maxHeal != maxHealCrit)
-                tooltips[5].Text += maxHeal + " HP (" + maxHealCrit + " HP for critical hits)";
-            else
-                tooltips[5].Text += maxHeal + " HP";
+            tooltips[t1_index+1].Text = 100 * attackSpeedBonus + "% increased melee attack speed";
+            tooltips[t1_index+2].Text = "Lifesteal amount limit per hit: " + maxHeal + " HP";
+            tooltips[t1_index+3].Text = "Non-melee damage is reduced by 1%";
+            tooltips[t1_index+4].Text = "Passive: Below 15% HP, all bonuses increase and heal cooldown is halved.";
         }
 
-        private static bool isNearDeath(Player player) {
+        private bool isNearDeath(Player player) {
             return player.statLife <= player.statLifeMax2*nearDeath_HP;
         }
 

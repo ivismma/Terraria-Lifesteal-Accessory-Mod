@@ -4,11 +4,11 @@ Items: {
 		Tooltip:
 			'''
 			Grants lifesteal based on damage dealt
-			% increased life steal at the cost of
-			% increased melee attack speed
-			Lifesteal amount limit per hit: 
-			Non-melee damage lifesteal is reduced by 1%
-			Passive: Below 15% HP, all bonuses increase and heal cooldown is halved.
+			LifestealInfo
+			AtkSpeedInfo
+			HPLimitInfo
+			NonMeleeInfo
+			PassiveInfo
 			'''
 	}
 }

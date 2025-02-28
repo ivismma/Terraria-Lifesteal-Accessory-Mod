@@ -20,19 +20,19 @@ namespace lifestealaccessory{
             NPCID.LunarTowerNebula
         ] ;
 
+        // NPC's (AI) blacklisted (bichos, pássaros, minhocas, etc):
+        // com objetivo de seguir o padrão do Vampire Knives
+        public readonly HashSet<int> npcAi_BlackList = [
+            NPCAIStyleID.Passive,
+            NPCAIStyleID.Bird,
+            NPCAIStyleID.CritterWorm
+        ];
+
         // Armas blacklisted:
         public readonly HashSet<int> item_BlackList = [
             ItemID.VampireKnives,
             ItemID.SoulDrain // (Life Drain)
         ];
-
-        /* não usado por enquanto:
-        // Projéteis blacklisted:
-        public readonly HashSet<int> proj_BlackList = [
-            ProjectileID.VampireKnife,
-            ProjectileID.SoulDrain
-        ];
-        */
 
         // verifica se o player está usando o set completo de Spectre
         public bool isUsingSpectreSet(){
